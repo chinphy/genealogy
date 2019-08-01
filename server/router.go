@@ -17,6 +17,8 @@ func NewRouter() *gin.Engine {
 	r.Use(middleware.Cors())
 	r.Use(middleware.CurrentUser())
 
+	r.GET("/ws", api.WsConnection)
+
 	// 路由
 	v1 := r.Group("/api/v1")
 	{
